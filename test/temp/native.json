@@ -1,0 +1,424 @@
+[
+    [
+        {
+            "value": "<!",
+            "scopes": [
+                "text.marko",
+                "meta.tag.sgml.html",
+                "punctuation.definition.tag.html"
+            ]
+        },
+        {
+            "value": "DOCTYPE",
+            "scopes": [
+                "text.marko",
+                "meta.tag.sgml.html",
+                "meta.tag.sgml.doctype.html"
+            ]
+        },
+        {
+            "value": " html",
+            "scopes": [
+                "text.marko",
+                "meta.tag.sgml.html",
+                "meta.tag.sgml.doctype.html"
+            ]
+        },
+        {
+            "value": ">",
+            "scopes": [
+                "text.marko",
+                "meta.tag.sgml.html",
+                "punctuation.definition.tag.html"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "html",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        },
+        {
+            "value": " ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "lang",
+            "scopes": [
+                "text.marko",
+                "entity.other.attribute-name.html"
+            ]
+        },
+        {
+            "value": "=",
+            "scopes": [
+                "text.marko",
+                "punctuation.separator.key-value.html"
+            ]
+        },
+        {
+            "value": "\"",
+            "scopes": [
+                "text.marko",
+                "string.quoted.double.js",
+                "punctuation.definition.string.begin.js"
+            ]
+        },
+        {
+            "value": "en",
+            "scopes": [
+                "text.marko",
+                "string.quoted.double.js"
+            ]
+        },
+        {
+            "value": "\"",
+            "scopes": [
+                "text.marko",
+                "string.quoted.double.js",
+                "punctuation.definition.string.end.js"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "    ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "head",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "        ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "title",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        },
+        {
+            "value": " ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "-",
+            "scopes": [
+                "text.marko",
+                "punctuation.separator"
+            ]
+        },
+        {
+            "value": " Marko Templating Engine",
+            "scopes": [
+                "text.marko"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "    ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "body",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "        ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "h1",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        },
+        {
+            "value": " ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "-",
+            "scopes": [
+                "text.marko",
+                "punctuation.separator"
+            ]
+        },
+        {
+            "value": " Hello ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "${",
+            "scopes": [
+                "text.marko",
+                "meta.section.marko-placeholder",
+                "keyword.operator.js"
+            ]
+        },
+        {
+            "value": "data.name",
+            "scopes": [
+                "text.marko",
+                "meta.section.marko-placeholder"
+            ]
+        },
+        {
+            "value": "}",
+            "scopes": [
+                "text.marko",
+                "meta.section.marko-placeholder",
+                "keyword.operator.js"
+            ]
+        },
+        {
+            "value": "!",
+            "scopes": [
+                "text.marko"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "        ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "ul",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        },
+        {
+            "value": " ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "if",
+            "scopes": [
+                "text.marko",
+                "entity.other.attribute-name.html"
+            ]
+        },
+        {
+            "value": "(",
+            "scopes": [
+                "text.marko",
+                "meta.brace.round.js"
+            ]
+        },
+        {
+            "value": "notEmpty",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "(",
+            "scopes": [
+                "text.marko",
+                "meta.brace.round.js"
+            ]
+        },
+        {
+            "value": "data.colors",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": ")",
+            "scopes": [
+                "text.marko",
+                "meta.brace.round.js"
+            ]
+        },
+        {
+            "value": ")",
+            "scopes": [
+                "text.marko",
+                "meta.brace.round.js"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "            ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "li",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        },
+        {
+            "value": " ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "for",
+            "scopes": [
+                "text.marko",
+                "entity.other.attribute-name.html"
+            ]
+        },
+        {
+            "value": "(",
+            "scopes": [
+                "text.marko",
+                "meta.brace.round.js"
+            ]
+        },
+        {
+            "value": "color ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "in",
+            "scopes": [
+                "text.marko",
+                "keyword.operator.js"
+            ]
+        },
+        {
+            "value": " data.colors",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": ")",
+            "scopes": [
+                "text.marko",
+                "meta.brace.round.js"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "                ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "${",
+            "scopes": [
+                "text.marko",
+                "meta.section.marko-placeholder",
+                "keyword.operator.js"
+            ]
+        },
+        {
+            "value": "color",
+            "scopes": [
+                "text.marko",
+                "meta.section.marko-placeholder"
+            ]
+        },
+        {
+            "value": "}",
+            "scopes": [
+                "text.marko",
+                "meta.section.marko-placeholder",
+                "keyword.operator.js"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "        ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "div",
+            "scopes": [
+                "text.marko",
+                "entity.name.tag"
+            ]
+        },
+        {
+            "value": " ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "else",
+            "scopes": [
+                "text.marko",
+                "entity.other.attribute-name.html"
+            ]
+        }
+    ],
+    [
+        {
+            "value": "            ",
+            "scopes": [
+                "text.marko"
+            ]
+        },
+        {
+            "value": "-",
+            "scopes": [
+                "text.marko",
+                "punctuation.separator"
+            ]
+        },
+        {
+            "value": " No colors!",
+            "scopes": [
+                "text.marko"
+            ]
+        }
+    ]
+]

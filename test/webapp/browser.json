@@ -1,0 +1,6 @@
+{
+    "dependencies": [
+        "codemirror/lib/codemirror.css",
+        "require-run: ./client.js"
+    ]
+}

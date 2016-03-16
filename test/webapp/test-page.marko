@@ -1,0 +1,29 @@
+<lasso-page package-path="./browser.json"/>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <lasso-head/>
+</head>
+<body>
+
+
+<textarea id="code" marko-body="static-text">
+<!DOCTYPE html>
+html lang="en"
+    head
+        title - Marko Templating Engine
+    body
+        h1 - Hello ${data.name}!
+        ul if(notEmpty(data.colors))
+            li for(color in data.colors)
+                ${color}
+        div else
+            - No colors!
+</textarea>
+
+    <lasso-body/>
+</body>
+</html>
