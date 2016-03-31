@@ -5,7 +5,27 @@ var GrammarRegistry = firstMate.GrammarRegistry;
 
 var registry = new GrammarRegistry();
 
-var translations = {
+function extend(target, source) { //A simple function to copy properties from one object to another
+    if (!target) { //Check if a target was provided, otherwise create a new empty object to return
+        target = {};
+    }
+
+    if (source) {
+        for (var propName in source) {
+            if (source.hasOwnProperty(propName)) { //Only look at source properties that are not inherited
+                target[propName] = source[propName]; //Copy the property
+            }
+        }
+    }
+
+    return target;
+}
+
+/**
+ * This map is used to translate Atom scope names (based on TextMate scopes)
+ * to a corresponding CodeMirror token name.
+ */
+var defaultScopeTranslations = {
     'keyword': 'keyword',
     'atom': 'atom',
     'number': 'number',
@@ -29,57 +49,66 @@ var translations = {
     'entity.other.attribute-name.html': 'attribute',
     'hr': 'hr',
     'link': 'link',
-    'meta.section.marko-placeholder': 'strong',
-    'meta.section.marko-attribute': 'strong',
     'meta.brace': 'bracket',
-    'support.function.marko-tag': 'strong tag',
-    'support.function.marko-attribute': 'strong attribute'
 };
 
-function bestMatch(parts) {
-    var end = parts.length;
-    for (var i=end; i>=1; i--) {
-        var section = parts.slice(0, i).join('.');
-        var translated = translations[section];
-        if (translated) {
-            return translated;
+function registerGrammar(grammarObject, options, CodeMirror) {
+    if (!CodeMirror) {
+        CodeMirror = window.CodeMirror;
+    }
+
+    var scopeTranslations = {};
+    extend(scopeTranslations, defaultScopeTranslations);
+
+    if (options) {
+        if (options.scopeTranslations) {
+            extend(scopeTranslations, options.scopeTranslations);
         }
     }
 
-    return parts.join('.');
-}
-
-function translateScopes(scopes) {
-    return scopes.map(function(scope) {
-        var parts = scope.split(/['.']/);
-        return bestMatch(parts);
-    });
-}
-
-function dedupe(items) {
-    var found = {};
-    return items.filter(function(item) {
-        if (found.hasOwnProperty(item)) {
-            return false;
+    function bestMatch(parts) {
+        var end = parts.length;
+        for (var i=end; i>=1; i--) {
+            var section = parts.slice(0, i).join('.');
+            var translated = scopeTranslations[section];
+            if (translated) {
+                return translated;
+            }
         }
-        found[item] = true;
-        return true;
-    });
-}
 
-function nextToken(line, stream) {
-    var nextToken = line.tokens[line.nextTokenIndex++];
-
-    var nextTokenValue = nextToken.value;
-    for (var i=0; i<nextTokenValue.length; i++) {
-        stream.next();
+        return parts.join('.');
     }
 
-    var token = dedupe(translateScopes(nextToken.scopes)).join(' ');
-    return token;
-}
+    function translateScopes(scopes) {
+        return scopes.map(function(scope) {
+            var parts = scope.split(/['.']/);
+            return bestMatch(parts);
+        });
+    }
 
-function registerGrammar(grammarObject, CodeMirror) {
+    function dedupe(items) {
+        var found = {};
+        return items.filter(function(item) {
+            if (found.hasOwnProperty(item)) {
+                return false;
+            }
+            found[item] = true;
+            return true;
+        });
+    }
+
+    function nextToken(line, stream) {
+        var nextToken = line.tokens[line.nextTokenIndex++];
+
+        var nextTokenValue = nextToken.value;
+        for (var i=0; i<nextTokenValue.length; i++) {
+            stream.next();
+        }
+
+        var token = dedupe(translateScopes(nextToken.scopes)).join(' ');
+        return token;
+    }
+
     var grammarName = grammarObject.name;
     var modeName = grammarName;
     var grammar = registry.createGrammar(grammarName, grammarObject);
@@ -127,4 +156,22 @@ function registerGrammar(grammarObject, CodeMirror) {
     });
 }
 
+function registerGrammars(grammars, CodeMirror) {
+    grammars.forEach(function(grammar) {
+        var options;
+
+        var grammarObject;
+
+        if (grammar.options && grammar.grammar) {
+            options = grammar.options;
+            grammarObject = grammar.grammar;
+        } else {
+            grammarObject = grammar;
+        }
+
+        registerGrammar(grammarObject, options, CodeMirror);
+    });
+}
+
 exports.registerGrammar = registerGrammar;
+exports.registerGrammars = registerGrammars;

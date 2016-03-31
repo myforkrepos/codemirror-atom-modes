@@ -1,7 +1,7 @@
 {
   "name": "codemirror-atom-modes",
   "version": "1.0.0",
-  "description": "",
+  "description": "Use Atom grammar files to apply syntax highlighting in a CodeMirror editor",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
