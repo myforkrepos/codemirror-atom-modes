@@ -1,0 +1,10 @@
+{
+  "name": "webapp",
+  "version": "1.0.0",
+  "dependencies": {
+    "codemirror": "^5.13.2",
+    "express": "^4.13.4",
+    "lasso": "^2.1.5",
+    "marko": "^3.0.7"
+  }
+}

@@ -1,6 +1,6 @@
 'use strict';
 
-var firstMate = require('first-mate');
+var firstMate = require('@pnidem/first-mate');
 var GrammarRegistry = firstMate.GrammarRegistry;
 
 var registry = new GrammarRegistry();
