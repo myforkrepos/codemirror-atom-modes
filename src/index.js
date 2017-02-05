@@ -28,6 +28,7 @@ function extend(target, source) { //A simple function to copy properties from on
 var defaultScopeTranslations = {
     'keyword': 'keyword',
     'atom': 'atom',
+    'constant': 'atom',
     'number': 'number',
     'def': 'def',
     'variable': 'variable',
@@ -45,6 +46,7 @@ var defaultScopeTranslations = {
     'bracket': 'bracket',
     'tag': 'tag',
     'entity.name.tag': 'tag',
+    'storage': 'keyword',
     'attribute': 'attribute',
     'entity.other.attribute-name.html': 'attribute',
     'hr': 'hr',
@@ -76,7 +78,7 @@ function registerGrammar(grammarObject, options, CodeMirror) {
             }
         }
 
-        return parts.join('.');
+        return parts.join('-');
     }
 
     function translateScopes(scopes) {
@@ -98,15 +100,28 @@ function registerGrammar(grammarObject, options, CodeMirror) {
     }
 
     function nextToken(line, stream) {
-        var nextToken = line.tokens[line.nextTokenIndex++];
+        var tokenIndex = line.nextTokenIndex++;
+        if (tokenIndex >= line.tokens.length) {
+            return undefined;
+        }
 
-        var nextTokenValue = nextToken.value;
-        for (var i=0; i<nextTokenValue.length; i++) {
+        var token = line.tokens[tokenIndex];
+
+        if (token == null) {
+            return undefined;
+        }
+
+        var tokenValue = token.value;
+        if (tokenValue === '') {
+            return nextToken(line, stream);
+        }
+
+        for (var i=0; i<tokenValue.length; i++) {
             stream.next();
         }
 
-        var token = dedupe(translateScopes(nextToken.scopes)).join(' ');
-        return token;
+        var codeMirrorToken = dedupe(translateScopes(token.scopes)).join(' ');
+        return codeMirrorToken;
     }
 
     var grammarName = grammarObject.name;
@@ -150,7 +165,6 @@ function registerGrammar(grammarObject, options, CodeMirror) {
                 }
 
                 return nextToken(line, stream);
-
             }
         };
     });
