@@ -1,6 +1,6 @@
 {
   "name": "codemirror-atom-modes",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Use Atom grammar files to apply syntax highlighting in a CodeMirror editor",
   "main": "src/index.js",
   "scripts": {
